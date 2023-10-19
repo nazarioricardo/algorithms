@@ -20,17 +20,18 @@ function isValid(s: string): boolean {
       continue;
     }
 
+    let isMatch = false;
     if (CLOSE_BRACKETS.includes(c)) {
       const lastOpenBracket: string =
         currentOpenBrackets[currentOpenBrackets.length - 1];
       const matchingBracket = BRACKETS_PAIRS[lastOpenBracket];
-      const isMatch = c === matchingBracket;
+      isMatch = c === matchingBracket;
+    }
 
-      if (isMatch) {
-        currentOpenBrackets.pop();
-      } else {
-        return false;
-      }
+    if (isMatch) {
+      currentOpenBrackets.pop();
+    } else {
+      return false;
     }
   }
 
