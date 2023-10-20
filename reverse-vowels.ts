@@ -2,31 +2,36 @@ const VOWELS = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
 
 function reverseVowels(s: string): string {
   const isVowel = (c: string): boolean => VOWELS.includes(c);
+  const strArr = s.split("");
   let vowels: string[] = [];
   let indexes: number[] = [];
-  let index = 0;
 
-  const strArr = s.split("");
-
-  for (const c of strArr) {
+  for (const [index, c] of strArr.entries()) {
     if (isVowel(c)) {
       vowels.push(c);
       indexes.push(index);
     }
-
-    index++;
   }
 
   const reversedVowels = vowels.reverse();
 
-  let vIndex = 0;
-  for (const v of reversedVowels) {
-    const insertionIndex = indexes[vIndex];
+  for (const [index, v] of reversedVowels.entries()) {
+    const insertionIndex = indexes[index];
     strArr[insertionIndex] = v;
-    vIndex++;
   }
 
   return strArr.join("");
 }
+
+// function reverseVowels(s: string): string {
+//   let left = 0;
+//   let right = s.length - 1;
+
+//   while (left < right) {
+
+//   }
+
+//   return s;
+// }
 
 console.log(reverseVowels("hello"), reverseVowels("leetcode"));
