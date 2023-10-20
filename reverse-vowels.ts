@@ -1,28 +1,6 @@
 const VOWELS = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
 const isVowel = (c: string): boolean => VOWELS.includes(c);
 
-// function reverseVowels(s: string): string {
-//   const strArr = s.split("");
-//   let vowels: string[] = [];
-//   let indexes: number[] = [];
-
-//   for (const [index, c] of strArr.entries()) {
-//     if (isVowel(c)) {
-//       vowels.push(c);
-//       indexes.push(index);
-//     }
-//   }
-
-//   const reversedVowels = vowels.reverse();
-
-//   for (const [index, v] of reversedVowels.entries()) {
-//     const insertionIndex = indexes[index];
-//     strArr[insertionIndex] = v;
-//   }
-
-//   return strArr.join("");
-// }
-
 function reverseVowels(s: string): string {
   const strArr = s.split("");
   let left = 0;
