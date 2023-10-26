@@ -1,4 +1,3 @@
-// Definition for singly-linked list.
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -196,22 +195,39 @@ const isEven = (n: number): boolean => n % 2 === 0;
 //   return h1;
 // };
 
-const zipper = (h1: NodeType, h2: NodeType): NodeType => {
-  if (h1 === null) {
-    return h2;
+// const zipper = (h1: NodeType, h2: NodeType): NodeType => {
+//   if (h1 === null) {
+//     return h2;
+//   }
+
+//   if (h2 === null) {
+//     return h1;
+//   }
+
+//   const n1 = h1.next;
+//   const n2 = h2.next;
+//   h1.next = h2;
+//   h2.next = zipper(n1, n2);
+//   return h1;
+// };
+
+// const zipped = zipper(a, a1);
+
+// logValues(zipped);
+
+// Remove Dups
+const removeDuplicates = (head: NodeType, prev: NodeType): NodeType => {
+  if (head === null) {
+    return null;
   }
 
-  if (h2 === null) {
-    return h1;
+  if (prev && prev.val === head.val) {
+    prev.next = head.next;
   }
 
-  const n1 = h1.next;
-  const n2 = h2.next;
-  h1.next = h2;
-  h2.next = zipper(n1, n2);
-  return h1;
+  removeDuplicates(head.next, head);
+  return head;
 };
 
-const zipped = zipper(a, a1);
-
-logValues(zipped);
+const cleaned = removeDuplicates(list, null);
+logValues(cleaned);
