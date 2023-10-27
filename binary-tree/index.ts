@@ -21,11 +21,15 @@ const c = new TreeNode("c");
 const d = new TreeNode("d");
 const e = new TreeNode("e");
 const f = new TreeNode("f");
+const g = new TreeNode("g");
+const h = new TreeNode("h");
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
 c.right = f;
+e.left = g;
+f.right = h;
 
 export { a, BinaryNodeType };
